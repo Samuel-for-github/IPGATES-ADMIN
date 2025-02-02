@@ -77,7 +77,7 @@ const course=()=>{
   
                   <TouchableOpacity key={i} style={styles.cards}
                     onPress={() => {
-                      router.push(`/notes/note?folder=${encodeURIComponent(value.title)}`)
+                      router.push(`/course/course?folder=${encodeURIComponent(value.title)}`)
                     }}
                   >
                     <Text style={styles.cardsText}>{value.title}</Text>

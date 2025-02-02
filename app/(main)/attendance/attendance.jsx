@@ -18,19 +18,18 @@ const attendance = () => {
     const [selectedDate, setSelectedDate] = useState(null);
     const [attendanceData, setAttendanceData] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [event, setEvent] = useState('');
     const [cId, setCId] = useState('');
-
+    
     useEffect(() => {
         fetchStudents();
-    }, [event]); // Fetch students on mount
+    }, []); // Fetch students on mount
 
     const fetchStudents = async () => {
         setLoading(true);
         try {
             const { data, error } = await supabase.from('course').select().eq("c_name", folder).eq("request", "Accepted");
             if (error) throw error;
-          
+            console.log(data);
             
             
 
@@ -94,8 +93,8 @@ const attendance = () => {
     };
 
     const handleDateChange = async (day) => {
-        setEvent(day)
         setSelectedDate(day.dateString);
+    
         // Reset attendance data when a new date is selected
         let tempAttendanceData = [];
     

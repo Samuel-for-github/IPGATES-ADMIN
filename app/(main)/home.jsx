@@ -80,10 +80,20 @@ useEffect(() => {
                 <Text style={styles.card}>Courses</Text>
               </TouchableOpacity>
             )}
+            {!isTeacher && (
+              <TouchableOpacity style={styles.navigate} onPress={() => router.push('/job')}>
+                <Text style={styles.card}>Send Job Notification</Text>
+              </TouchableOpacity>
+            )}
             {/* Render verify navigation only if the user is not a teacher */}
             {!isTeacher && (
               <TouchableOpacity style={styles.navigate} onPress={() => router.push('/verify')}>
                 <Text style={styles.card}>Verify Student for Course</Text>
+              </TouchableOpacity>
+            )}
+              {!isTeacher && (
+              <TouchableOpacity style={styles.navigate} onPress={() => router.push('/feedback')}>
+                <Text style={styles.card}>Feedbacks</Text>
               </TouchableOpacity>
             )}
             {/* Render notes and attendance for both admin and teacher */}
